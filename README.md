@@ -1,75 +1,87 @@
-Task Management Project Setup
+# Task Management Project Setup
+
 This guide provides step-by-step instructions to set up the Task Management application, including both backend and frontend components.
-Prerequisites
 
-Git
-Docker and Docker Compose
-Node.js and npm
-PHP and Composer (for backend)
+## Prerequisites
+- Git
+- Docker and Docker Compose
+- Node.js and npm
+- PHP and Composer (for backend)
 
-Installation Steps
-1. Clone the Repository
-   Clone the project repository to your local machine:
-   git clone https://github.com/thoai2nf/task-management
+## Installation Steps
 
-2. Set Up the Backend
-   Navigate to the backend directory and set up the environment:
+### 1. Clone the Repository
+Clone the project repository to your local machine:
+```bash
+git clone https://github.com/thoai2nf/task-management
+```
 
-Change to the backend directory:
-cd backend
+### 2. Set Up the Backend
+Navigate to the backend directory and set up the environment:
 
+1. Change to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-Start the Docker containers:
-docker compose up --build -d
+2. Start the Docker containers:
+   ```bash
+   docker compose up --build -d
+   ```
 
+3. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
 
-Copy the example environment file:
-cp .env.example .env
+4. Access the application container:
+   ```bash
+   docker exec -it app bash
+   ```
 
+5. Generate the application key:
+   ```bash
+   php artisan key:generate
+   ```
 
-Access the application container:
-docker exec -it app bash
+6. Generate the JWT secret:
+   ```bash
+   php artisan jwt:secret
+   ```
 
+7. Clear the optimization cache:
+   ```bash
+   php artisan optimize:clear
+   ```
 
-Generate the application key:
-php artisan key:generate
+8. Clear the configuration cache:
+   ```bash
+   php artisan config:clear
+   ```
 
+### 3. Set Up the Frontend
+Navigate to the frontend directory and set up the environment:
 
-Generate the JWT secret:
-php artisan jwt:secret
+1. Change to the frontend directory:
+   ```bash
+   cd frontend
+   ```
 
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Clear the optimization cache:
-php artisan optimize:clear
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
+4. Access the frontend application at:
+   ```
+   http://localhost:5173/
+   ```
 
-Clear the configuration cache:
-php artisan config:clear
-
-
-
-3. Set Up the Frontend
-   Navigate to the frontend directory and set up the environment:
-
-Change to the frontend directory:
-cd frontend
-
-
-Install dependencies:
-npm install
-
-
-Start the development server:
-npm run dev
-
-
-Access the frontend application at:
-http://localhost:5173/
-
-
-
-Notes
-
-Ensure all prerequisites are installed before starting the setup process.
-If you encounter any issues, verify that Docker is running and all ports are available.
-
+## Notes
+- Ensure all prerequisites are installed before starting the setup process.
+- If you encounter any issues, verify that Docker is running and all ports are available.
