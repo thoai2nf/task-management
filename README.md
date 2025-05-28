@@ -1,17 +1,75 @@
-Init setup
-1. Git clone https://github.com/thoai2nf/task-management
-2. Set up backend
-   2.1 cd backend
-   2.2 run command: docker compose up --build -d
-   2.3 cp .env.example .env
-   2.4 docker exec -it app bash
-   2.5 php artisan key:generate
-   2.6 php artisan jwt:secret
-   2.7 php artisan optimize:clear
-   2.8 php artisan config:clear
+Task Management Project Setup
+This guide provides step-by-step instructions to set up the Task Management application, including both backend and frontend components.
+Prerequisites
 
-3. Set up frontend
-   3.1 cd frontend
-   3.2 npm install
-   3.3 npm run dev
-   access: http://localhost:5173/
+Git
+Docker and Docker Compose
+Node.js and npm
+PHP and Composer (for backend)
+
+Installation Steps
+1. Clone the Repository
+   Clone the project repository to your local machine:
+   git clone https://github.com/thoai2nf/task-management
+
+2. Set Up the Backend
+   Navigate to the backend directory and set up the environment:
+
+Change to the backend directory:
+cd backend
+
+
+Start the Docker containers:
+docker compose up --build -d
+
+
+Copy the example environment file:
+cp .env.example .env
+
+
+Access the application container:
+docker exec -it app bash
+
+
+Generate the application key:
+php artisan key:generate
+
+
+Generate the JWT secret:
+php artisan jwt:secret
+
+
+Clear the optimization cache:
+php artisan optimize:clear
+
+
+Clear the configuration cache:
+php artisan config:clear
+
+
+
+3. Set Up the Frontend
+   Navigate to the frontend directory and set up the environment:
+
+Change to the frontend directory:
+cd frontend
+
+
+Install dependencies:
+npm install
+
+
+Start the development server:
+npm run dev
+
+
+Access the frontend application at:
+http://localhost:5173/
+
+
+
+Notes
+
+Ensure all prerequisites are installed before starting the setup process.
+If you encounter any issues, verify that Docker is running and all ports are available.
+
